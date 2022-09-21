@@ -15,3 +15,13 @@
     @apply p-0 m-0 font-primary;
   }
 }
+
+@layer components {
+  .hero__container {
+    @apply flex gap-6 flex-col px-16 py-20 w-full h-[75vh] min-h-[600px] items-center justify-center bg-center;
+  }
+
+  .section__heading {
+    @apply text-4xl text-gray-600 font-bold;
+  }
+}
