@@ -21,7 +21,7 @@ const NavBarComponent = () => {
       <h3 className='font-bold text-xl'>ReTrac</h3>
 
       <div
-        className={`opacity-0 lg:opacity-100 lg:flex gap-7 h-full items-center`}
+        className={`opacity-0 lg:opacity-100 lg:flex gap-8 h-full items-center`}
       >
         {/* ====== Nav items */}
 
@@ -29,8 +29,8 @@ const NavBarComponent = () => {
         <Link href='/' passHref>
           <a
             className={`nav__item ${
-              router.pathname.indexOf('/about') === -1 && 'text-green-400'
-            }`}
+              scrolled ? `nav__item-scrolled` : 'nav__item'
+            } ${router.pathname.indexOf('/about') === -1 && 'text-green-400'}`}
           >
             Home
           </a>
@@ -86,6 +86,7 @@ const NavBarComponent = () => {
                 className={`nav__item-mobile ${
                   router.pathname.indexOf('/about') === -1 && 'text-green-400'
                 }`}
+                onClick={() => setOpen((state) => !state)}
               >
                 Home
               </a>
@@ -96,6 +97,7 @@ const NavBarComponent = () => {
                 className={`nav__item-mobile  ${
                   router.pathname.indexOf('/about') !== -1 && 'text-green-400'
                 }`}
+                onClick={() => setOpen((state) => !state)}
               >
                 About Us
               </a>
