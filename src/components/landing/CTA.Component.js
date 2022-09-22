@@ -9,13 +9,12 @@ const CTAComponent = () => {
           <div className='px-6 pt-10 pb-12 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20'>
             <div className='lg:self-center'>
               <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>
-                <span className='block'>Want to view more?</span>
+                <span className='block'>Join the safe side,</span>
                 <span className='block'>Register for full access.</span>
               </h2>
               <p className='mt-4 text-lg font-secondary leading-6 text-gray-200'>
-                To get full Access to ReTrac NG, ebsure transparency and
-                accountability,it is required that all users complete a simple
-                registration.
+                To ensure transparency and accountability, it is required that
+                all users complete a simple and free registration.
               </p>
 
               <Link href='#' passHref>
