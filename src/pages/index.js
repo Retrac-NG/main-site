@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import CommunityComponent from '../components/landing/Community.Component';
+import CTAComponent from '../components/landing/CTA.Component';
 import GetStartedComponent from '../components/landing/GetStarted.Component';
 import HeroComponent from '../components/landing/Hero.Component';
 import TopSectionComponent from '../components/landing/TopSection.Component';
+import AppLayout from '../layouts/AppLayout';
 
 export default function Home() {
   return (
@@ -21,8 +23,11 @@ export default function Home() {
           <TopSectionComponent />
           <GetStartedComponent />
           <CommunityComponent />
+          <CTAComponent />
         </div>
       </main>
     </div>
   );
 }
+
+Home.layout = AppLayout;
