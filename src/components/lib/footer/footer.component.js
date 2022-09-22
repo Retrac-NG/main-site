@@ -21,7 +21,7 @@ const FooterComponent = () => {
         </div>
 
         {/* ====== company section */}
-        <div className=' col-span-2 lg:col-span-1 gap-1 flex flex-col px-2 '>
+        <div className=' col-span-2 lg:col-span-1 gap-2 flex flex-col px-2 '>
           <p className='text-gray-700 font-bold'>Company</p>
 
           {footerCompanyData &&
@@ -35,7 +35,7 @@ const FooterComponent = () => {
         </div>
 
         {/* ====== help and support section */}
-        <div className='col-span-2 lg:col-span-1 gap-1 flex flex-col px-2'>
+        <div className='col-span-2 lg:col-span-1 gap-2 flex flex-col px-2'>
           <p className='text-gray-700 font-bold'>Help & Support</p>
 
           {footerHelpData &&
@@ -49,7 +49,7 @@ const FooterComponent = () => {
         </div>
 
         {/* ====== legal section */}
-        <div className='col-span-2 lg:col-span-1 gap-1 flex flex-col px-2'>
+        <div className='col-span-2 lg:col-span-1 gap-2 flex flex-col px-2'>
           <p className='text-gray-700 font-bold'>Legal</p>
 
           {footerLegalData &&
