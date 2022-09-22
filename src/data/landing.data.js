@@ -39,3 +39,22 @@ export const getStartedData = [
       'As a good Nigerian, you can report lost or stolen items you have found. The owner of the item would be alerted and arrange for a pick up. You will be recognised by ReTrac if the owner gets the item back.',
   },
 ];
+
+export const CommunityData = [
+
+    {
+      value: "270+",
+      title: "Registered User",
+      content: "From buttons, to inputs, navbars, alerts or cards, you are covered"
+    },
+    {
+      value: "160",
+      title: "Devices Reported",
+      content: "From buttons, to inputs, navbars, alerts or cards, you are covered"
+    },  {
+      value: "110",
+      title: "Devices Found",
+      content: "Save 3-4 weeks of work when you lorem ipsum doremi falasitodo"
+    },
+
+]
