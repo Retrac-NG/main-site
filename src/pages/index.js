@@ -14,7 +14,9 @@ export default function Home() {
 
       <main className='flex flex-col w-full min-h-screen items-center'>
         <HeroComponent />
-        <div className='flex h-auto py-20 px-96 rounded-xl shadow-2xl mb-24 bg-gray-50 w-[97%] items-center flex-col justify-center -mt-10'>
+
+        {/* ====== Main content card */}
+        <div className='flex h-auto py-20 px-10 rounded-2xl shadow-2xl mb-24 bg-gradient-to-b from-indigo-50 to-white w-[97%] gap-20 items-center flex-col justify-center -mt-14'>
           <TopSectionComponent />
           <GetStartedComponent />
         </div>

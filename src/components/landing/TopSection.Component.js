@@ -2,8 +2,8 @@ import React from 'react';
 
 const TopSectionComponent = () => {
   return (
-    <div className='flex flex-col px-16 py-10 items-center gap-5 '>
-      <h1 className='section__heading'>Know ReTrac</h1>
+    <div className='landing__section-container xl:px-36'>
+      <h1 className='landing__section-heading'>Know ReTrac</h1>
       <p className='text-gray-400 text-lg mt-10 font-secondary'>
         <b className='text-green-400'>ReTrac</b> is a citizens driven tech
         initiative designed to facilitate the recovery of stolen items. It
