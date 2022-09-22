@@ -19,11 +19,15 @@
 @layer components {
   /* Landing page components */
   .hero__container {
-    @apply flex gap-6 flex-col px-16 py-20 w-full h-[75vh] min-h-[600px] items-center justify-center bg-cover bg-center;
+    @apply flex gap-5 flex-col px-16 py-20 w-full h-[75vh] min-h-[600px] items-center justify-center bg-cover bg-center;
   }
 
   .landing__hero-btn {
     @apply border rounded-md px-10 py-2 text-gray-200 relative hover:text-white hover:border-white z-10 after:z-0 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0 after:bg-gray-100/10 after:transition-all after:duration-300 hover:after:h-full text-center;
+  }
+
+  .landing__hero--btn-icon {
+    @apply inline-block w-6 h-4 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300;
   }
 
   .landing__section-container {
@@ -32,5 +36,19 @@
 
   .landing__section-heading {
     @apply text-4xl text-gray-600 font-bold;
+  }
+
+  /* Nav bar components */
+
+  .nav__item {
+    @apply font-medium cursor-pointer text-gray-200 hover:text-white text-lg;
+  }
+
+  .nav__item-mobile {
+    @apply font-medium text-xl text-gray-400 hover:text-gray-600 cursor-pointer;
+  }
+
+  .nav__item-scrolled {
+    @apply text-sm text-gray-500 hover:text-gray-700 font-medium cursor-pointer;
   }
 }

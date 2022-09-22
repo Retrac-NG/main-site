@@ -16,7 +16,7 @@ const HeroComponent = () => {
       }}
     >
       {/* ====== Logo image */}
-      <div className='h-24 w-96 relative items-center flex justify-center'>
+      <div className='h-20 w-80 relative items-center flex justify-center'>
         <Image src={logoImg} layout='fill' objectFit='cover' />
       </div>
 
@@ -28,8 +28,7 @@ const HeroComponent = () => {
       </p>
       <Link href='#' passHref>
         <a className='landing__hero-btn group'>
-          Explore{' '}
-          <ArrowLongRightIcon className='inline-block w-6 h-4 opacity-0 -translate-x-8 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300' />
+          Explore <ArrowLongRightIcon className='landing__hero--btn-icon' />
         </a>
       </Link>
     </div>
