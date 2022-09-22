@@ -17,11 +17,20 @@
 }
 
 @layer components {
+  /* Landing page components */
   .hero__container {
-    @apply flex gap-6 flex-col px-16 py-20 w-full h-[75vh] min-h-[600px] items-center justify-center bg-center;
+    @apply flex gap-6 flex-col px-16 py-20 w-full h-[75vh] min-h-[600px] items-center justify-center bg-cover bg-center;
   }
 
-  .section__heading {
+  .landing__hero-btn {
+    @apply border rounded-md px-10 py-2 text-gray-200 relative hover:text-white hover:border-white z-10 after:z-0 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0 after:bg-gray-100/10 after:transition-all after:duration-300 hover:after:h-full text-center;
+  }
+
+  .landing__section-container {
+    @apply flex flex-col md:px-12 py-10 items-center gap-8 max-w-[1400px];
+  }
+
+  .landing__section-heading {
     @apply text-4xl text-gray-600 font-bold;
   }
 }
