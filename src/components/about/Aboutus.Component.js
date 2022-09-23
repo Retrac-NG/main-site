@@ -10,12 +10,6 @@ const AboutusComponent = () => {
            <p  className='text-gray-400 text-lg mt-4 font-secondary w-[65%] '>
             {item.text1}
           </p>
-           <p  className='text-gray-400 text-lg font-secondary w-[65%] '>
-            {item.text2}
-          </p>
-           <p  className='text-gray-400 text-lg font-secondary w-[65%] '>
-            {item.text3}
-          </p>
           </section>
             
       ))}
