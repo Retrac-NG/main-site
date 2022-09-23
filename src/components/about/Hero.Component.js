@@ -10,7 +10,7 @@ const HeroComponent = () => {
       className='hero__container'
       style={{
         background:
-          "linear-gradient(to top, rgba(30,60,80,0.3), rgba(30,60,80,0.3)), url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
+          "linear-gradient(to top, rgba(10,40,60,0.3), rgba(10,40,60,0.4)), url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
@@ -22,11 +22,13 @@ const HeroComponent = () => {
 
       {/* ====== Description text */}
       <p className='text-center text-md lg:text-xl text-gray-100/90 xl:w-2/4 font-light '>
-      We’re constantly trying to express ourselves and actualize our dreams. If you have the opportunity to play this game
+        We’re constantly trying to express ourselves and actualize our dreams.
+        If you have the opportunity to play this game
       </p>
       <Link href='#' passHref>
         <a className='landing__hero-btn group'>
-          Create Account <ArrowLongRightIcon className='landing__hero--btn-icon' />
+          Create Account{' '}
+          <ArrowLongRightIcon className='landing__hero--btn-icon' />
         </a>
       </Link>
     </header>

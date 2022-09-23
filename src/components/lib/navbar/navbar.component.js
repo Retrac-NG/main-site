@@ -55,13 +55,13 @@ const NavBarComponent = () => {
 
       {/* ====== call to actions */}
       <div className='hidden opacity-0 lg:opacity-100 lg:flex gap-5 h-full items-center'>
-        <Link href='#' passHref>
+        <Link href='auth/login' passHref>
           <a className={`${scrolled ? `nav__item-scrolled` : `nav__item`}`}>
             Login
           </a>
         </Link>
 
-        <Link href='#' passHref>
+        <Link href='auth/signup' passHref>
           <a className='rounded-lg shadow-lg px-5 py-2 bg-gradient-to-br from-green-500 to-green-600 text-gray-100 font-bold text-sm'>
             Register
           </a>
@@ -106,13 +106,13 @@ const NavBarComponent = () => {
 
           {/* ====== call to action */}
           <div className='w-full flex flex-col gap-2'>
-            <Link href='#' passHref>
+            <Link href='auth/login' passHref>
               <a className='w-full border border-gray-500 rounded-lg py-3 text-gray-500 text-center hover:text-gray-800'>
                 Login
               </a>
             </Link>
 
-            <Link href='#' passHref>
+            <Link href='auth/signup' passHref>
               <a className='w-full bg-gradient-to-b from-green-500 to-green-600 rounded-lg py-3 text-gray-100 text-center shadow-lg'>
                 Register
               </a>
