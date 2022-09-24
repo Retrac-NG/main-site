@@ -52,7 +52,7 @@
     @apply text-sm text-gray-500 hover:text-gray-700 font-medium cursor-pointer;
   }
 
-  /* Auth page components */
+  /* Auth Login Page components */
   .auth__input {
     @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:shadow-xl border-2 border-gray-300 focus:outline-green-400;
   }
@@ -60,4 +60,16 @@
   .auth__input-icon {
     @apply w-6 h-6 absolute right-3 text-gray-600 cursor-pointer;
   }
+
+
+  /* Auth Signup Page component  */
+
+  .authsignup__input {
+    @apply w-fit h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:shadow-xl border-2 border-gray-300 focus:outline-green-400;
+  }
+
 }
+
+
+
+
