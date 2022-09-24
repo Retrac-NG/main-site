@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import Head from 'next/head';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
@@ -135,6 +136,12 @@ const Signup = () => {
             {/* Footer section */}
             {/* <AuthFooterComponent /> */}
   </div>;
+=======
+import React from 'react';
+
+const Signup = () => {
+  return <div>Signup</div>;
+>>>>>>> 2b2b44a5e3520d29f707ce79d72011616cf9c7bf
 };
 
 export default Signup;
