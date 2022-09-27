@@ -6,6 +6,7 @@ export const footerData = [
   {
     text: 'About us',
     link: '/about',
+    link: 'about',
   },
   {
     text: 'Blog',
