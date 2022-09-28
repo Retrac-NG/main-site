@@ -61,4 +61,17 @@
   .auth__input-icon {
     @apply w-6 h-6 absolute right-3 text-gray-600 cursor-pointer;
   }
+
+  /* Profile page components */
+  .hero__stats-container {
+    @apply flex items-center flex-col justify-center gap-3;
+  }
+
+  .hero__stats-value {
+    @apply text-4xl lg:text-5xl font-secondary text-gray-100 font-bold bg-gradient-to-br from-green-600 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .hero__stats-desc {
+    @apply text-sm font-light font-secondary  text-gray-300;
+  }
 }
