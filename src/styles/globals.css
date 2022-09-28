@@ -56,9 +56,21 @@
   .auth__input {
     @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:px-6 transition-all duration-300 focus:shadow-md border-2 border-gray-300 outline-green-400 text-gray-700;
   }
-  /* @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:shadow-xl border-2 border-gray-300 focus:outline-green-400; */
 
   .auth__input-icon {
     @apply w-6 h-6 absolute right-3 text-gray-600 cursor-pointer;
+  }
+
+  /* Profile page components */
+  .hero__stats-container {
+    @apply flex items-center flex-col justify-center gap-3;
+  }
+
+  .hero__stats-value {
+    @apply text-4xl lg:text-5xl font-secondary text-gray-100 font-bold bg-gradient-to-br from-green-600 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .hero__stats-desc {
+    @apply text-sm font-light font-secondary  text-gray-300;
   }
 }
