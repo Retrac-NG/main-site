@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 
-const ManageAssetCOmponent = () => {
+const ManageAssetComponent = () => {
   return (
     <div className='bg-white '>
       <div className='mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8'>
@@ -19,8 +19,9 @@ const ManageAssetCOmponent = () => {
               </p>
 
               <Link href='#' passHref>
-                <a className='mt-8 py-3 inline-block landing__hero-btn'>
+                <a className='mt-8 py-3 inline-block landing__hero-btn group'>
                   Manage assets
+                  <ArrowLongRightIcon className='landing__hero--btn-icon' />
                 </a>
               </Link>
             </div>
@@ -40,4 +41,4 @@ const ManageAssetCOmponent = () => {
   );
 };
 
-export default ManageAssetCOmponent;
+export default ManageAssetComponent;
