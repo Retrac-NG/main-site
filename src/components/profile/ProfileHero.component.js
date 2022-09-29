@@ -14,6 +14,7 @@ const ProfileHeroComponent = () => {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
       }}
     >
       {/* ====== profile avatar */}

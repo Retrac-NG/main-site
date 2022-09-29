@@ -13,6 +13,7 @@ const HeroComponent = () => {
           "linear-gradient(to top, rgba(10,40,60,0.3), rgba(10,40,60,0.4)), url('https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
       }}
     >
       {/* ====== Logo image */}
