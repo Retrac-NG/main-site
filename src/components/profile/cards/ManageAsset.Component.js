@@ -18,7 +18,7 @@ const ManageAssetComponent = () => {
                 of your assets all in one simple to use platorm.
               </p>
 
-              <Link href='#' passHref>
+              <Link href='profile/assets' passHref>
                 <a className='mt-8 py-3 inline-block landing__hero-btn group'>
                   Manage assets
                   <ArrowLongRightIcon className='landing__hero--btn-icon' />

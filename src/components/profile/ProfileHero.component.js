@@ -7,7 +7,7 @@ import Logo from '../../assets/logo/retrac-logo-1.png';
 const ProfileHeroComponent = () => {
   return (
     <div
-      className='hero__container h-[45vh] lg:h-[50vh] min-h-[600px] py-14 relative'
+      className='hero__container h-[45vh] lg:h-[50vh] min-h-[600px] py-14 relative px-10'
       style={{
         background:
           "linear-gradient(to bottom, rgba(10,40,60,0.85), rgba(10,40,60,0.85)), url('https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBwZXJzb258ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60')",
@@ -18,7 +18,7 @@ const ProfileHeroComponent = () => {
       }}
     >
       {/* ====== profile avatar */}
-      <div className=' w-[120px] lg:w-[160px] h-[120px] lg:h-[160px] bg-red-300 flex items-center justify-center rounded-full shadow-2xl relative overflow-hidden border border-gray-400'>
+      <div className=' w-[120px] lg:w-[160px] h-[120px] lg:h-[160px] flex items-center justify-center rounded-full shadow-2xl relative overflow-hidden border border-gray-400'>
         <Image
           src='https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBwZXJzb258ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
           layout='fill'
