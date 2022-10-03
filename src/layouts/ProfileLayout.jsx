@@ -4,7 +4,7 @@ import ProfileHeroComponent from '../components/profile/ProfileHero.component';
 
 const ProfileLayout = ({ children }) => {
   return (
-    <div className='w-full flex flex-col min-h-screen bg-gray-100'>
+    <div className='w-full flex flex-col min-h-screen bg-gray-100 items-center'>
       <ProfileHeroComponent />
       {children}
       <FooterComponent />
