@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useState, useRef } from 'react';
 import { PlusIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import ProfileLayout from '../../../layouts/ProfileLayout';
+import ProfileAssetEdit from '../../../components/lib/slideovers/profileAssetEdit.component';
 
 const images = [
   'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1500&q=60',
@@ -14,6 +15,7 @@ const images = [
 
 const ProfileAssetManageItem = () => {
   const fileUploadRef = useRef();
+  const [showEdit, setShowEdit] = useState(false);
   const [currentImage, setCurrentImage] = useState(images[0]);
 
   return (
@@ -184,11 +186,14 @@ const ProfileAssetManageItem = () => {
         </div>
 
         {/* ====== Edit button */}
-        <button className='flex items-center border-2 py-2 w-max px-12 rounded-md shadow-sm transition-all duration-300 relative hover:shadow-lg border-gray-400  text-gray-400 hover:border-indigo-500  hover:text-indigo-500  font-medium after:w-full after:h-0 after:absolute after:bottom-0 after:left-0 hover:after:h-full after:bg-indigo-500/20 after:transition-all after:duration-300 group'>
+        <button className='flex items-center border-2 py-2 w-max px-12 rounded-md shadow-sm transition-all duration-300 relative hover:shadow-lg border-gray-400  text-gray-400 hover:border-indigo-500  hover:text-indigo-500  font-medium after:w-full after:h-0 after:absolute after:bottom-0 after:left-0 hover:after:h-full after:bg-indigo-500/20 after:transition-all after:duration-300 group' onClick={()=> setShowEdit(state=> !state)}>
           Edit asset
-          <PencilSquareIcon className='inline-block w-5 h-5 ml-2 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0' />
+          <PencilSquareIcon className='inline-block w-5 h-5 ml-2 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0' onClick={()=> setShowEdit(state => !state)}/>
         </button>
       </section>
+
+      {/* ====== edit slideover */}
+      <ProfileAssetEdit id='' state={showEdit} setState={setShowEdit} />
     </main>
   );
 };

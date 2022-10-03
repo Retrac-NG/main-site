@@ -78,4 +78,19 @@
   .hero__stats-desc {
     @apply text-xs text-center font-light font-secondary  text-gray-300;
   }
+
+  .asset__edit-container {
+    @apply flex flex-col col-span-2 md:col-span-1 gap-1 text-sm;
+  }
+
+  .asset__edit-input {
+    @apply w-full border border-indigo-300 shadow-md rounded-md h-10 px-4 py-1 text-sm text-gray-600 font-secondary font-medium;
+  }
+  .asset__edit-text-area {
+    @apply w-full border border-indigo-300 h-32 rounded-lg shadow-md px-5 py-3 text-sm text-gray-600;
+  }
+
+  /* .asset__edit-label {
+    @apply;
+  }  */
 }
