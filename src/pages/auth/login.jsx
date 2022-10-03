@@ -85,7 +85,7 @@ const Login = () => {
 
         {/* ====== switch to signup */}
         <p className='text-sm text-gray-700'>
-          Don't have an account?&nbsp;&nbsp;&nbsp;
+          Don&apos;t have an account?&nbsp;&nbsp;&nbsp;
           <Link href='#' passHref>
             <a className='font-medium text-green-600'>Sign up</a>
           </Link>

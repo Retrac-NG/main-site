@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Logo from '../../assets/logo/retrac-logo-1.png';
 
@@ -20,7 +20,12 @@ const ProfileHeroComponent = () => {
       }}
     >
       {/* ====== profile avatar */}
-      <div className=' w-[120px] lg:w-[160px] h-[120px] lg:h-[160px] flex items-center justify-center rounded-full shadow-2xl relative overflow-hidden border border-gray-400'>
+      <div
+        className=" w-[120px] lg:w-[160px] h-[120px] lg:h-[160px] flex items-center justify-center rounded-full shadow-2xl relative overflow-hidden border border-gray-400 cursor-pointer transition-all duration-300 hover:shadow-2xl  after:content-['Profile'] after:w-full after:opacity-0 after:h-0 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 after:bg-black/70 after:flex after:items-center after:justify-center after:text-gray-200/90 hover:after:h-full hover:after:opacity-100"
+        onClick={() => {
+          router.push('/profile/settings');
+        }}
+      >
         <Image
           src='https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBwZXJzb258ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
           layout='fill'
