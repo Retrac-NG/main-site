@@ -19,7 +19,7 @@ export default function Home() {
         <HeroComponent />
 
         {/* ====== Main content card */}
-        <main className='flex h-auto py-20 px-10 rounded-2xl shadow-2xl mb-24 bg-gradient-to-b from-indigo-50 to-white w-[97%] gap-20 items-center flex-col justify-center -mt-14'>
+        <main className='main'>
           <TopSectionComponent />
           <GetStartedComponent />
           <CommunityComponent />
