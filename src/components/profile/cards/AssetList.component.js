@@ -57,7 +57,7 @@ const AssetsListComponent = ({ category = '' }) => {
                   </div>
                   <div className='mt-6'>
                     <a
-                      href={asset.href}
+                      href='/profile/assets/test'
                       className='relative flex items-center justify-center rounded-md border shadow-sm border-gray-300 py-3 duration-300 px-8 text-sm font-medium text-gray-900 hover:bg-gray-100 text-center'
                     >
                       Manage {asset.model}
