@@ -1,4 +1,4 @@
-export default function (req, res) {
+export default function GetyProfileData(req, res) {
   const profileActionData = [
     {
       image:

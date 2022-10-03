@@ -90,7 +90,14 @@
     @apply w-full border border-indigo-300 h-32 rounded-lg shadow-md px-5 py-3 text-sm text-gray-600;
   }
 
-  /* .asset__edit-label {
-    @apply;
-  }  */
+  .profile__settings-container {
+    @apply flex flex-col gap-1 col-span-3 lg:col-span-2;
+  }
+
+  .profile__settings-input {
+    @apply w-full rounded-md shadow-md px-4 py-2 border border-indigo-400 h-10 text-sm font-medium font-secondary;
+  }
+  .profile__settings-textarea {
+    @apply w-full rounded-md shadow-md px-4 py-2 border border-indigo-300 h-32;
+  }
 }

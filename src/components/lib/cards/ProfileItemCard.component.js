@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 
 const ProfileItemCardComponent = ({ image, status, name }) => {
   const [statusClass, setStatusClass] = useState('bg-green-500');
+
   useEffect(() => {
-    if (status === 'found') setStatusClass('bg-green-500');
+    if (status === 'found') setStatusClass('bg-green-600');
     if (status === 'lost') setStatusClass('bg-red-500');
     if (status === 'misplaced') setStatusClass('bg-orange-500');
-  });
+  }, []);
 
   return (
     <div className='fex flex-col h-96 rounded-2xl cursor-pointer hover:shadow-2xl transition-all duration-300 shadow-md w-full max-w-[300px] col-span-4 md:col-span-2 lg:col-span-1 bg-white overflow-hidden border-2 hover:shadow-gray-400 border-gray-200 hover:border-gray-300 relative items-center justify-center'>

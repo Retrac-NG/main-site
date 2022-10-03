@@ -56,13 +56,12 @@ const AssetsListComponent = ({ category = '' }) => {
                     </div>
                   </div>
                   <div className='mt-6'>
-                    <a
-                      href='/profile/assets/test'
-                      className='relative flex items-center justify-center rounded-md border shadow-sm border-gray-300 py-3 duration-300 px-8 text-sm font-medium text-gray-900 hover:bg-gray-100 text-center'
-                    >
-                      Manage {asset.model}
-                      <span className='sr-only'>, {asset.name}</span>
-                    </a>
+                    <Link href='/profile/assets/test' passHref>
+                      <a className='relative flex items-center justify-center rounded-md border shadow-sm border-gray-300 py-3 duration-300 px-8 text-sm font-medium text-gray-900 hover:bg-gray-100 text-center'>
+                        Manage {asset.model}
+                        <span className='sr-only'>, {asset.name}</span>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               )
@@ -71,7 +70,7 @@ const AssetsListComponent = ({ category = '' }) => {
 
         {/* ====== desktop Add button */}
         <Link href='#' passHref>
-          <a className='col-span-4 self-center relative group bg-green-600 py-3 px-5 top-10 rounded-md text-gray-50 transition-all duration-300 hover:shadow-xl font-medium hidden md:inline-block'>
+          <a className='col-span-4 self-center relative group bg-green-600 py-3 px-5 top-10 rounded-md text-gray-50 transition-all duration-300 hover:shadow-xl font-medium hidden md:inline-block pointer-events-none md:pointer-events-auto'>
             Add new {category.slice(0, -1)}
             <PlusIcon className='inline-block w-5 h-5 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 ml-2' />
           </a>
@@ -79,7 +78,7 @@ const AssetsListComponent = ({ category = '' }) => {
 
         {/* ====== mobile add buttons */}
         <Link href='#' passHref>
-          <a className='inline-block fixed bg-green-600 text-gray-50 font-medium right-5 rounded-full duration-300 shadow-2xl bottom-5 md:hidden py-4 px-4 z-10 hover:scale-110 '>
+          <a className='inline-block fixed bg-green-600 text-gray-50 font-medium right-5 rounded-full duration-300 shadow-2xl bottom-5 md:hidden py-4 px-4 z-10 hover:scale-110 md:pointer-events-none'>
             <PlusIcon className='inline-block w-7 h-7 shadow-2xl' />
           </a>
         </Link>
