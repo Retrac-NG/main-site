@@ -1,5 +1,5 @@
 import React from 'react';
-import { CommunityData } from '../../data/landing.data';
+import { CommunityData } from '../../../data/landing.data';
 
 const CommunityComponent = () => {
   return (

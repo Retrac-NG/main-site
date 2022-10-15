@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { PowerIcon } from '@heroicons/react/24/outline';
-import Logo from '../../assets/logo/retrac-logo-1.png';
+import Logo from '../../../assets/logo/retrac-logo-1.png';
 
 const ProfileHeroComponent = () => {
   const router = useRouter();

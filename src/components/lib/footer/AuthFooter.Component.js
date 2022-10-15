@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { footerData } from '../../data/auth.data';
+import { footerData } from '../../../data/auth.data';
 
 const AuthFooterComponent = () => {
   return (

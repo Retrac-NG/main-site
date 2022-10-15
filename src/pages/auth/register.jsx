@@ -4,9 +4,9 @@ import LogoImg from '../../assets/logo/retrac-logo-2.png';
 import Image from 'next/image';
 import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import AuthFooterComponent from '../../components/auth/AuthFooter.Component';
+import AuthFooterComponent from '../../components/lib/footer/AuthFooter.Component';
 
-const Signup = () => {
+const Register = () => {
   const [eye, setEye] = useState(false);
 
   return (
@@ -117,12 +117,10 @@ const Signup = () => {
           </a>
         </Link>
         {/* Terms and Condition */}
-        <p className='text-sm text-center text-gray-700'>
-          {' '}
-          by Signing up you agree to our
+        <p className='text-sm text-center text-gray-400/90'>
+          by Signing up you agree to our &nbsp;
           <Link href='#' passHref>
-            <a className='text-green-500 cursor-pointer text-sm '>
-              {' '}
+            <a className='text-green-500 cursor-pointer text-sm font-medium'>
               Terms and Conditions{' '}
             </a>
           </Link>
@@ -136,7 +134,7 @@ const Signup = () => {
         </p>
 
         {/* Already have an Account? */}
-        <p className='text-sm text-center text-gray-700'>
+        <p className='text-sm text-center text-gray-500'>
           Already have an account?&nbsp;&nbsp;&nbsp;
           <Link href='/auth/login' passHref>
             <a className='text-green-500 cursor-pointer text-sm font-medium'>
@@ -151,4 +149,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;

@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import CommunityComponent from '../components/landing/Community.Component';
-import CTAComponent from '../components/landing/CTA.Component';
-import GetStartedComponent from '../components/landing/GetStarted.Component';
-import HeroComponent from '../components/landing/Hero.Component';
-import TopSectionComponent from '../components/landing/TopSection.Component';
+import CommunityComponent from '../components/pages/landing/Community.Component';
+import CTAComponent from '../components/pages/landing/CTA.Component';
+import GetStartedComponent from '../components/pages/landing/GetStarted.Component';
+import HeroComponent from '../components/lib/hero/LandingHero.component';
+import TopSectionComponent from '../components/pages/landing/TopSection.Component';
 import AppLayout from '../layouts/AppLayout';
 
 export default function Home() {
@@ -16,7 +16,12 @@ export default function Home() {
       </Head>
 
       <div className='flex flex-col w-full min-h-screen items-center'>
-        <HeroComponent />
+        <HeroComponent
+          mainText='A citizens driven tech initiative designed to facilitate the recovery of
+        stolen items. devices with unique identification details (UIDs) can be
+        reported and tracked.'
+          btnText='Explore'
+        />
 
         {/* ====== Main content card */}
         <main className='main'>

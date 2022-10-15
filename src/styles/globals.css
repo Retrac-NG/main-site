@@ -58,9 +58,8 @@
 
   /* Auth Login Page components */
   .auth__input {
-    @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:px-6 transition-all duration-300 focus:shadow-md border-2 border-gray-300 outline-green-400 text-gray-700;
+    @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:px-6 transition-all duration-300 focus:shadow-md border-2 border-gray-300 outline-green-400 text-gray-700 focus:ring-0 focus:outline-green-400 focus:border-none placeholder:text-gray-300;
   }
-  /* @apply w-full h-11 px-4 py-2 font-secondary font-medium rounded-lg focus:shadow-xl border-2 border-gray-300 focus:outline-green-400; */
 
   .auth__input-icon {
     @apply w-6 h-6 absolute right-3 text-gray-600 cursor-pointer;
