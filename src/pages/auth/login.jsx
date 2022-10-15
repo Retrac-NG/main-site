@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
-import AuthFooterComponent from '../../components/auth/AuthFooter.Component';
+import AuthFooterComponent from '../../components/lib/footer/AuthFooter.Component';
 
 const Login = () => {
   /* ====== Input visibility state */
@@ -42,7 +42,7 @@ const Login = () => {
           <input
             className='auth__input'
             placeholder='Password'
-            type={eye ? 'text' : 'password'}
+            type={!eye && 'password'}
           />
           {eye ? (
             <EyeIcon
@@ -63,7 +63,7 @@ const Login = () => {
             <input
               type='checkbox'
               name='remember-me'
-              className='cursor-pointer rounded-lg border-gray-600 w-4 h-4 text-green-400'
+              className='cursor-pointer rounded-sm shadow-sm border-green-400 w-4 h-4 ring-0 outline-none text-green-400 focus:ring-0'
             />
             <label for='remember-me'>Remember me</label>
           </span>
@@ -86,7 +86,7 @@ const Login = () => {
         {/* ====== switch to signup */}
         <p className='text-sm text-gray-700'>
           Don&apos;t have an account?&nbsp;&nbsp;&nbsp;
-          <Link href='#' passHref>
+          <Link href='register' passHref>
             <a className='font-medium text-green-600'>Sign up</a>
           </Link>
         </p>

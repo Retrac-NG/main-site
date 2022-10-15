@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
-import ProfileItemCardComponent from '../lib/cards/ProfileItemCard.component';
+import ProfileItemCardComponent from '../../lib/cards/ProfileAssetCard.component';
 
 const RecentComponent = () => {
   return (

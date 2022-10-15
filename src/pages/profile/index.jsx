@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ActionCardComponent from '../../components/profile/cards/ActionCard.component';
+import ActionCardComponent from '../../components/lib/cards/ProfileActionCard.component';
 import ProfileLayout from '../../layouts/ProfileLayout';
-import ManageAssetComponent from '../../components/profile/cards/ManageAsset.Component';
-import RecentComponent from '../../components/profile/Recent.component';
+import ManageAssetComponent from '../../components/lib/cards/ProfileManageAsset.component';
+import RecentComponent from '../../components/pages/profile/Recent.component';
 
 const Profile = () => {
   const [ActionData, setActionData] = useState([]);

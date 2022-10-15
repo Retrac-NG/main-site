@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
-import { getStartedData } from '../../data/landing.data';
+import { getStartedData } from '../../../data/landing.data';
 
 const GetStartedComponent = () => {
   return (

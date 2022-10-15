@@ -61,7 +61,7 @@ const NavBarComponent = () => {
           </a>
         </Link>
 
-        <Link href='auth/signup' passHref>
+        <Link href='auth/register' passHref>
           <a className='rounded-lg shadow-lg px-5 py-2 bg-gradient-to-br from-green-500 to-green-600 text-gray-100 font-bold text-sm'>
             Register
           </a>
@@ -73,8 +73,10 @@ const NavBarComponent = () => {
         <Bars3BottomRightIcon onClick={() => setOpen((state) => !state)} />
 
         <div
-          className={`flex flex-col py-8 px-3 items-center justify-between -translate-y-20 w-80 h-72 bg-white/90 absolute right-0 -bottom-[18.5rem] rounded-lg shadow-xl opacity-0 transition-all duration-300 pointer-events-none ${
-            open && 'translate-y-1 opacity-100 pointer-events-auto'
+          className={`flex flex-col py-8 px-3 items-center justify-between -translate-y-20 w-80 h-72 bg-white/90 absolute right-0 -bottom-[18.5rem] rounded-lg shadow-xl transition-all duration-300 z-50 pointer-events-none ${
+            open
+              ? 'translate-y-1 opacity-100 pointer-events-auto'
+              : 'opacity-0 '
           }`}
         >
           {/* ====== Nav items */}

@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterComponent from '../components/lib/footer/footer.component';
-import ProfileHeroComponent from '../components/profile/ProfileHero.component';
+import ProfileHeroComponent from '../components/lib/hero/ProfileHero.component';
 
 const ProfileLayout = ({ children }) => {
   return (

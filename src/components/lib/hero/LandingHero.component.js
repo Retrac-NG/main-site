@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
-import logoImg from '../../assets/logo/retrac-logo-2.png';
+import logoImg from '../../../assets/logo/retrac-logo-2.png';
 
-const HeroComponent = () => {
+const HeroComponent = ({ mainText, btnText }) => {
   return (
     <header
       className='hero__container'
@@ -22,13 +22,12 @@ const HeroComponent = () => {
       </div>
 
       {/* ====== Description text */}
-      <p className='text-center text-md lg:text-xl text-gray-100/90 xl:w-2/4 font-light '>
-        We&quot;re constantly trying to express ourselves and actualize our
-        dreams. If you have the opportunity to play this game
+      <p className='text-center text-md lg:text-lg text-gray-200/90 xl:w-2/4 font-light font-secondary'>
+        {mainText}
       </p>
       <Link href='#' passHref>
         <a className='landing__hero-btn group'>
-          Create Account
+          {btnText}
           <ArrowLongRightIcon className='landing__hero--btn-icon' />
         </a>
       </Link>
