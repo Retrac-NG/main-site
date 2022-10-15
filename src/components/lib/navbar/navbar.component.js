@@ -73,7 +73,7 @@ const NavBarComponent = () => {
         className='flex opacity-100 lg:hidden lg:opacity-0 items-center justify-center w-12 h-12 p-1 border rounded-lg shadow-lg cursor-pointer relative'
         onClick={() => setOpen((state) => !state)}
       >
-        <Bars3BottomRightIcon className='z-50 text-gray-100' />
+        <Bars3BottomRightIcon className='z-50 text-gray-100 w-12 h-12' />
 
         <div
           className={`flex flex-col py-8 px-3 items-center justify-between -translate-y-20 w-80 h-72 bg-white/90 absolute right-0 -bottom-[18.5rem] rounded-lg shadow-xl transition-all duration-300 z-50 pointer-events-none ${
