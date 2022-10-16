@@ -49,7 +49,7 @@
   }
 
   .nav__item-mobile {
-    @apply font-medium text-xl text-gray-400 hover:text-gray-600 cursor-pointer;
+    @apply font-medium text-xl text-gray-600 hover:text-gray-800 cursor-pointer;
   }
 
   .nav__item-scrolled {

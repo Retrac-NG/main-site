@@ -70,10 +70,16 @@ const NavBarComponent = () => {
 
       {/* ====== Mobile nav */}
       <div
-        className='flex opacity-100 lg:hidden lg:opacity-0 items-center justify-center w-12 h-12 p-1 border rounded-lg shadow-lg cursor-pointer relative'
+        className={`flex opacity-100 lg:hidden lg:opacity-0 items-center justify-center w-12 h-12 p-1 border rounded-lg shadow-lg cursor-pointer relative ${
+          scrolled && 'border-gray-400'
+        }`}
         onClick={() => setOpen((state) => !state)}
       >
-        <Bars3BottomRightIcon className='z-50 text-gray-100 w-12 h-12' />
+        <Bars3BottomRightIcon
+          className={`z-50  w-8 h-8 transition-all duration-300 ${
+            scrolled ? 'text-gray-600' : 'text-gray-100'
+          }`}
+        />
 
         <div
           className={`flex flex-col py-8 px-3 items-center justify-between -translate-y-20 w-80 h-72 bg-white absolute right-0 -bottom-[18.5rem] rounded-lg shadow-xl transition-all duration-300 z-50 pointer-events-none ${
@@ -89,7 +95,7 @@ const NavBarComponent = () => {
             <Link href='/' passHref>
               <a
                 className={`nav__item-mobile ${
-                  router.pathname.indexOf('/about') === -1 && 'text-green-400'
+                  router.pathname.indexOf('/about') === -1 && 'text-green-600'
                 }`}
                 onClick={() => setOpen((state) => !state)}
               >
@@ -112,7 +118,7 @@ const NavBarComponent = () => {
           {/* ====== call to action */}
           <div className='w-full flex flex-col gap-2'>
             <Link href='auth/login' passHref>
-              <a className='w-full border border-gray-500 rounded-lg py-3 text-gray-500 text-center hover:text-gray-800'>
+              <a className='w-full border border-gray-500 rounded-lg py-3 text-gray-600 text-center hover:text-gray-800'>
                 Login
               </a>
             </Link>
