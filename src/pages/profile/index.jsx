@@ -34,6 +34,7 @@ const Profile = () => {
                 image={item.image}
                 text={item.text}
                 desc={item.desc}
+                link={item.link}
                 key={index}
               />
             ))}
