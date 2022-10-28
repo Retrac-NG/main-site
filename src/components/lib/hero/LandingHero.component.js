@@ -25,7 +25,7 @@ const HeroComponent = ({ mainText, btnText }) => {
       <p className='text-center text-md lg:text-lg text-gray-200/90 xl:w-2/4 font-light font-secondary'>
         {mainText}
       </p>
-      <Link href='#' passHref>
+      <Link href='profile' passHref>
         <a className='landing__hero-btn group'>
           {btnText}
           <ArrowLongRightIcon className='landing__hero--btn-icon' />

@@ -17,7 +17,7 @@ const CTAComponent = () => {
                 all users complete a simple and free registration.
               </p>
 
-              <Link href='#' passHref>
+              <Link href='auth/register' passHref>
                 <a className='mt-8 py-3 inline-block landing__hero-btn'>
                   Sign up for free
                 </a>

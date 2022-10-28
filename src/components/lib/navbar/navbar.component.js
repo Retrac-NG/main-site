@@ -48,7 +48,7 @@ const NavBarComponent = () => {
         </Link>
 
         {/* ====== COntact */}
-        <p className={`${scrolled ? `nav__item-scrolled` : `nav__item`}`}>
+        <p className={`${scrolled ? 'nav__item-scrolled' : 'nav__item'}`}>
           Contact
         </p>
       </div>
@@ -56,7 +56,7 @@ const NavBarComponent = () => {
       {/* ====== call to actions */}
       <div className='hidden opacity-0 lg:opacity-100 lg:flex gap-5 h-full items-center'>
         <Link href='auth/login' passHref>
-          <a className={`${scrolled ? `nav__item-scrolled` : `nav__item`}`}>
+          <a className={`${scrolled ? 'nav__item-scrolled' : 'nav__item'}`}>
             Login
           </a>
         </Link>
