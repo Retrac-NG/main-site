@@ -67,6 +67,15 @@ const AssetsListComponent = ({ category = '' }) => {
               )
           )}
         </div>
+        <div className='mt-16 mb-20' />
+        <iframe
+          width='1080'
+          height='720'
+          frameborder='0'
+          scrolling='no'
+          allowfullscreen
+          src='https://arcg.is/0vfiuL0'
+        ></iframe>
 
         {/* ====== desktop Add button */}
         <Link href='#' passHref>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
-import AuthFooterComponent from '../../components/lib/footer/AuthFooter.Component';
+import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 
 const Login = () => {
   /* ====== Input visibility state */

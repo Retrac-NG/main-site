@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import ProfileEditAssetForm from '../forms/ProfileEditAsset.component';
+import ProfileEditAssetForm from '../forms/ProfileEditAsset';
 
 const ProfileAssetEdit = ({ id = '', state, setState }) => {
   const [open, setOpen] = useState(true);

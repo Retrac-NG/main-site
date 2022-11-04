@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import CommunityComponent from '../components/pages/landing/Community.Component';
-import CTAComponent from '../components/pages/landing/CTA.Component';
-import GetStartedComponent from '../components/pages/landing/GetStarted.Component';
-import HeroComponent from '../components/lib/hero/LandingHero.component';
-import TopSectionComponent from '../components/pages/landing/TopSection.Component';
+import CommunityComponent from '../components/pages/landing/Community';
+import CTAComponent from '../components/pages/landing/CTA';
+import GetStartedComponent from '../components/pages/landing/GetStarted';
+import HeroComponent from '../components/lib/hero/LandingHero';
+import TopSectionComponent from '../components/pages/landing/TopSection';
 import AppLayout from '../layouts/AppLayout';
 
 export default function Home() {

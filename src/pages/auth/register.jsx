@@ -4,7 +4,7 @@ import LogoImg from '../../assets/logo/retrac-logo-2.png';
 import Image from 'next/image';
 import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import AuthFooterComponent from '../../components/lib/footer/AuthFooter.Component';
+import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 
 const Register = () => {
   const [eye, setEye] = useState(false);

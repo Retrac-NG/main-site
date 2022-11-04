@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import ProfileLayout from '../../../layouts/ProfileLayout';
-import AssetsListComponent from '../../../components/lib/cards/ProfileAssetList.component';
+import AssetsListComponent from '../../../components/lib/cards/ProfileAssetList';
 
 const categories = ['Phones', 'Laptops', 'Bikes', 'Cars'];
 
