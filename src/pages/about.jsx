@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import AboutusComponent from '../components/pages/about/Aboutus';
+import AboutusComponent from '../components/pages/about/Aboutus.Component';
 import AppLayout from '../layouts/AppLayout';
-import GetInTouchComponent from '../components/pages/about/GetInTouch';
+import GetInTouchComponent from '../components/pages/about/GetInTouch.Component';
+import CommunityComponent from '../components/pages/landing/Community';
 import HeroComponent from '../components/lib/hero/LandingHero';
 
 const About = () => {
