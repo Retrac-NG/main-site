@@ -9,11 +9,6 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 export default function Home() {
-  useEffect(() => {
-    (async () =>
-      await axios.get('api/getUsers').then((res) => console.log(res.data)))();
-  }, []);
-
   return (
     <div className='w-full h-auto bg-gray-100'>
       <Head>

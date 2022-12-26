@@ -36,25 +36,24 @@ declare const tables: readonly [
         readonly type: "int";
       },
       {
-        readonly name: "vehicles";
-        readonly type: "link";
-        readonly link: {
-          readonly table: "Gadgets";
-        };
+        readonly name: "email";
+        readonly type: "email";
         readonly unique: true;
       },
       {
-        readonly name: "email";
-        readonly type: "email";
+        readonly name: "vehicles";
+        readonly type: "link";
+        readonly link: {
+          readonly table: "Vehicles";
+        };
         readonly unique: true;
       },
       {
         readonly name: "gadgets";
         readonly type: "link";
         readonly link: {
-          readonly table: "Vehicles";
+          readonly table: "Gadgets";
         };
-        readonly unique: true;
       }
     ];
   },
