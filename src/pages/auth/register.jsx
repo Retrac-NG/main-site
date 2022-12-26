@@ -1,13 +1,43 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-import LogoImg from '../../assets/logo/retrac-logo-2.png';
-import Image from 'next/image';
-import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/outline';
+import axios from 'axios';
 import Link from 'next/link';
-import AuthFooterComponent from '../../components/lib/footer/AuthFooter.Component';
+import Head from 'next/head';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import LogoImg from '../../assets/logo/retrac-logo-2.png';
+import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/outline';
+import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 
 const Register = () => {
+  const router = useRouter();
   const [eye, setEye] = useState(false);
+  const [userDetails, setUserDetails] = useState({ found: 0 });
+
+  // -- handle form on change -->
+  const handleForm = (target) => (e) => {
+    e.preventDefault();
+    e.target.checkValidity();
+    e.target.reportValidity();
+    setUserDetails({
+      ...userDetails,
+      [target]: e.target.value,
+    });
+  };
+
+  // -- handle create user -->
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      const newUser = await axios.post('/api/v1/auth/signup', userDetails);
+      if (newUser) {
+        router.replace('/auth/login');
+        alert('✅ User created successfully');
+      }
+      if (!user) alert('failed to create user!');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -37,7 +67,9 @@ const Register = () => {
           type='text'
           placeholder='Email'
           name='email'
+          required
           className='auth__input'
+          onChange={(e) => handleForm('email')(e)}
         />
 
         {/* Firstname input field */}
@@ -45,30 +77,38 @@ const Register = () => {
           type='text'
           placeholder='First Name'
           name='firstname'
+          required
           className='auth__input'
+          onChange={(e) => handleForm('first_name')(e)}
         />
         {/* last Name input field */}
         <input
           type='text'
           placeholder='Last Name'
           name='lastname'
+          required
           className='auth__input'
+          onChange={(e) => handleForm('last_name')(e)}
         />
 
-        {/* State input field*/}
+        {/* other Name input field */}
         <input
           type='text'
-          placeholder='State'
-          name='state'
+          placeholder='Other Names'
+          name='othername'
           className='auth__input'
+          onChange={(e) => handleForm('other_name')(e)}
         />
 
-        {/* Local Government input field */}
+        {/* phone input field */}
         <input
-          type='text'
-          placeholder='LGA'
-          name='lga'
+          type='number'
+          placeholder='+234 XXX XXXX XXX'
+          name='othername'
+          minLength={11}
+          required
           className='auth__input'
+          onChange={(e) => handleForm('phone')(e)}
         />
 
         {/* ====== password input field */}
@@ -76,8 +116,11 @@ const Register = () => {
           <input
             className='auth__input'
             placeholder='Password'
+            required
             type={eye ? 'text' : 'password'}
+            onChange={(e) => handleForm('password')(e)}
           />
+
           {eye ? (
             <EyeIcon
               className='auth__input-icon'
@@ -96,6 +139,7 @@ const Register = () => {
           <input
             className='auth__input'
             placeholder='Confirm Password'
+            required
             type={eye ? 'text' : 'password'}
           />
           {eye ? (
@@ -111,23 +155,22 @@ const Register = () => {
           )}
         </span>
         {/* Login button */}
-        <Link href='#' passHref>
-          <a className='w-full text-center bg-green-500 py-2 rounded-lg shadow-lg text-gray-50 hover:bg-green-600 font-medium transition-all duration-300'>
+        <button type='submit' className='w-full' onClick={handleSignup}>
+          <p className='w-full text-center bg-green-500 py-2 rounded-lg shadow-lg text-gray-50 hover:bg-green-600 font-medium transition-all duration-300'>
             Sign up
-          </a>
-        </Link>
+          </p>
+        </button>
         {/* Terms and Condition */}
         <p className='text-sm text-center text-gray-400/90'>
           by Signing up you agree to our &nbsp;
           <Link href='#' passHref>
             <a className='text-green-500 cursor-pointer text-sm font-medium'>
-              Terms and Conditions{' '}
+              Terms and Conditions
             </a>
           </Link>
-          and our
+          and our&nbsp;
           <Link href='#' passHref>
             <a className='text-green-500 cursor-pointer text-sm'>
-              {' '}
               Privacy Policy
             </a>
           </Link>

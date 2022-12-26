@@ -1,0 +1,8 @@
+{
+  "databaseURL": "https://Retrac-Nigeria-s-workspace-makigu.us-east-1.xata.sh/db/Development",
+  "codegen": {
+    "output": "src/utils/xata.js",
+    "moduleType": "esm",
+    "declarations": true
+  }
+}

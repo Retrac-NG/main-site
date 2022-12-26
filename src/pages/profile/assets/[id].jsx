@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React, { useState, useRef } from 'react';
 import { PlusIcon, PencilSquareIcon } from '@heroicons/react/24/outline';
 import ProfileLayout from '../../../layouts/ProfileLayout';
-import ProfileAssetEdit from '../../../components/lib/slideovers/profileAssetEdit.component';
+import ProfileAssetEdit from '../../../components/lib/slideovers/profileAssetEdit';
 
 const images = [
   'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fyc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1500&q=60',

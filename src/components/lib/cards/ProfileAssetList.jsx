@@ -67,6 +67,7 @@ const AssetsListComponent = ({ category = '' }) => {
               )
           )}
         </div>
+        <div className='mt-16 mb-20' />
 
         {/* ====== desktop Add button */}
         <Link href='#' passHref>

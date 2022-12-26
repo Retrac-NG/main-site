@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RecentComponent from './Recent.component';
+import RecentComponent from './Recent';
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 

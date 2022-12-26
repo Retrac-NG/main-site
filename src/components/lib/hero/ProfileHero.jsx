@@ -4,9 +4,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import Logo from '../../../assets/logo/retrac-logo-1.png';
+import { userStore } from '../../../global/userStore';
 
 const ProfileHeroComponent = () => {
   const router = useRouter();
+  const { user } = userStore();
+
   return (
     <div
       className='hero__container h-[45vh] lg:h-[50vh] min-h-[600px] py-14 relative px-10'
@@ -37,7 +40,7 @@ const ProfileHeroComponent = () => {
 
       {/* ====== full name */}
       <h2 className='font-primary font-medium text-xl lg:text-2xl text-white'>
-        Micheal Edith Johnson
+        {user.first_name} {user.other_name} {user.last_name}
       </h2>
 
       {/* ====== Stats section */}
@@ -48,13 +51,18 @@ const ProfileHeroComponent = () => {
         </div>
 
         <div className='hero__stats-container'>
-          <p className='hero__stats-value'>14</p>
+          <p className='hero__stats-value'>{user.found}</p>
           <p className='hero__stats-desc'>Items Found</p>
         </div>
 
         <div className='hero__stats-container'>
-          <p className='hero__stats-value'>3</p>
-          <p className='hero__stats-desc'>Owned assets</p>
+          <p className='hero__stats-value'>{user.gedagets || 0}</p>
+          <p className='hero__stats-desc'>Owned Gadgets</p>
+        </div>
+
+        <div className='hero__stats-container'>
+          <p className='hero__stats-value'>{user.vehicles || 0}</p>
+          <p className='hero__stats-desc'>Owned Vehicles</p>
         </div>
       </div>
 
