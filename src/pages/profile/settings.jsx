@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { userStore } from '../../global/userStore';
 import ProfileLayout from '../../layouts/ProfileLayout';
@@ -9,17 +10,26 @@ const ProfileSettings = () => {
   // -- hndle form change -->
   const handleFormChange = (target) => (e) => {
     setUpdateData({ ...updateData, [target]: e.target.value });
-    console.log(updateData);
   };
 
   // -- save update -->
-  /* 
+  const saveUpdate = async () => {
+    /* 
     save to storage
     update the database
-    tokenize new data
+    TODO: tokenize new data
   */
-  const saveUpdate = () => {
-    updateUser(updateData);
+    try {
+      const data = await axios.post('/api/v1/users/updateUser', {
+        id: user.id,
+        data: updateData,
+      });
+      updateUser(updateData);
+      alert('✅ User Updated');
+      console.log(data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -63,6 +73,7 @@ const ProfileSettings = () => {
               className='profile__settings-input '
               name='othernames'
               value={updateData.other_name}
+              onChange={(e) => handleFormChange('other_name')(e)}
               placeholder='Williams'
             />
           </div>
@@ -76,6 +87,7 @@ const ProfileSettings = () => {
               name='email'
               value={updateData.email}
               placeholder='name@example.com'
+              onChange={(e) => handleFormChange('email')(e)}
             />
           </div>
 
@@ -87,6 +99,7 @@ const ProfileSettings = () => {
               className='profile__settings-input'
               name='phone'
               value={updateData.phone}
+              onChange={(e) => handleFormChange('phone')(e)}
               placeholder='+234 XXX XXXX XXX'
             />
           </div>
@@ -135,6 +148,7 @@ const ProfileSettings = () => {
               name='address'
               value={user.address}
               placeholder='Full address here...'
+              onChange={(e) => handleFormChange('address')(e)}
             />
           </div>
 
