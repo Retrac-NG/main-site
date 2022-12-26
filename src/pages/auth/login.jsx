@@ -4,12 +4,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { userLocalStore } from '../../global/userStore';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 
 const Login = () => {
   const router = useRouter();
+  const { setUser } = userLocalStore();
   const [isError, setisError] = useState(false);
 
   // -- input visibility state -->
@@ -30,8 +32,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const user = await axios.post('/api/v1/auth/login', userDetails);
+      // console.log(user.data.data);
 
       if (user.data) {
+        setUser({ isLoggedIn: true, token: user.data.data });
         alert('✅ Login successful');
         router.replace('/profile');
       }

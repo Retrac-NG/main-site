@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { userStore } from '../../global/userStore';
 import ProfileLayout from '../../layouts/ProfileLayout';
 
 const ProfileSettings = () => {
+  const { user, updateUser } = userStore();
+  const [updateData, setUpdateData] = useState(user);
+
+  // -- hndle form change -->
+  const handleFormChange = (target) => (e) => {
+    setUpdateData({ ...updateData, [target]: e.target.value });
+    console.log(updateData);
+  };
+
+  // -- save update -->
+  /* 
+    save to storage
+    update the database
+    tokenize new data
+  */
+  const saveUpdate = () => {
+    updateUser(updateData);
+  };
+
   return (
     <div className='w-full flex flex-col items-center'>
       <main className='main'>
@@ -16,6 +36,8 @@ const ProfileSettings = () => {
               type='text'
               className='profile__settings-input'
               name='firstname'
+              value={updateData.first_name}
+              onChange={(e) => handleFormChange('first_name')(e)}
               placeholder='John'
             />
           </div>
@@ -27,6 +49,8 @@ const ProfileSettings = () => {
               type='text'
               className='profile__settings-input '
               name='lastname'
+              value={updateData.last_name}
+              onChange={(e) => handleFormChange('last_name')(e)}
               placeholder='Doe'
             />
           </div>
@@ -38,6 +62,7 @@ const ProfileSettings = () => {
               type='text'
               className='profile__settings-input '
               name='othernames'
+              value={updateData.other_name}
               placeholder='Williams'
             />
           </div>
@@ -49,6 +74,7 @@ const ProfileSettings = () => {
               type='email'
               className='profile__settings-input'
               name='email'
+              value={updateData.email}
               placeholder='name@example.com'
             />
           </div>
@@ -60,6 +86,7 @@ const ProfileSettings = () => {
               type='tel'
               className='profile__settings-input'
               name='phone'
+              value={updateData.phone}
               placeholder='+234 XXX XXXX XXX'
             />
           </div>
@@ -106,6 +133,7 @@ const ProfileSettings = () => {
               type='tel'
               className='profile__settings-textarea'
               name='address'
+              value={user.address}
               placeholder='Full address here...'
             />
           </div>
@@ -114,6 +142,7 @@ const ProfileSettings = () => {
           <button
             type='button'
             className='col-span-6 py-3 mt-6 border border-gray-300 rounded-lg shadow-md bg-indigo-600 text-gray-100 font-medium'
+            onClick={saveUpdate}
           >
             Update profile
           </button>

@@ -77,6 +77,14 @@ const tables = [
       { name: "town", type: "string" },
     ],
   },
+  {
+    name: "Activity",
+    columns: [
+      { name: "initiator", type: "link", link: { table: "Users" } },
+      { name: "gadget", type: "link", link: { table: "Gadgets" } },
+      { name: "vehicle", type: "link", link: { table: "Vehicles" } },
+    ],
+  },
 ];
 /** @type { import('@xata.io/client').ClientConstructor<{}> } */
 const DatabaseClient = buildClient();

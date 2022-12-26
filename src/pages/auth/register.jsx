@@ -108,7 +108,7 @@ const Register = () => {
           minLength={11}
           required
           className='auth__input'
-          onChange={(e) => handleForm('other_name')(e)}
+          onChange={(e) => handleForm('phone')(e)}
         />
 
         {/* ====== password input field */}

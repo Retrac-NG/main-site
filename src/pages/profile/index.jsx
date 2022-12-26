@@ -7,9 +7,10 @@ import RecentComponent from '../../components/pages/profile/Recent';
 
 const Profile = () => {
   const [ActionData, setActionData] = useState([]);
+
   useEffect(() => {
     (async () => {
-      const response = await axios.get('/api/profile');
+      const response = await axios.get('/api/v1/profile');
       setActionData(response.data.actionSection);
       console.log(response.data);
     })();

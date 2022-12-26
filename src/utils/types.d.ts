@@ -200,6 +200,32 @@ declare const tables: readonly [
         readonly type: "string";
       }
     ];
+  },
+  {
+    readonly name: "Activity";
+    readonly columns: readonly [
+      {
+        readonly name: "initiator";
+        readonly type: "link";
+        readonly link: {
+          readonly table: "Users";
+        };
+      },
+      {
+        readonly name: "gadget";
+        readonly type: "link";
+        readonly link: {
+          readonly table: "Gadgets";
+        };
+      },
+      {
+        readonly name: "vehicle";
+        readonly type: "link";
+        readonly link: {
+          readonly table: "Vehicles";
+        };
+      }
+    ];
   }
 ];
 export declare type SchemaTables = typeof tables;
@@ -212,11 +238,14 @@ export declare type Gadgets = InferredTypes["Gadgets"];
 export declare type GadgetsRecord = Gadgets & XataRecord;
 export declare type AssetLocation = InferredTypes["Asset-location"];
 export declare type AssetLocationRecord = AssetLocation & XataRecord;
+export declare type Activity = InferredTypes["Activity"];
+export declare type ActivityRecord = Activity & XataRecord;
 export declare type DatabaseSchema = {
   Users: UsersRecord;
   Vehicles: VehiclesRecord;
   Gadgets: GadgetsRecord;
   "Asset-location": AssetLocationRecord;
+  Activity: ActivityRecord;
 };
 declare const DatabaseClient: any;
 export declare class XataClient extends DatabaseClient<DatabaseSchema> {

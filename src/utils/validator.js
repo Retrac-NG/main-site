@@ -1,4 +1,5 @@
-// -- ANy sort of validations needed to be carried out -->
+// -- Any sort of validations needed to be carried out -->
+import jwt from 'jsonwebtoken';
 
 /**
  * Validates signup data
@@ -16,4 +17,26 @@ export const signUpValidator = (userData) => {
   if (!validPassword) return { state: false, message: 'password too short' };
 
   return { state: true, message: 'validated' };
+};
+
+/**
+ * Encodes a given data to jwt token
+ * @param {*} data - Data to be signed with jwt
+ * @returns JWT token
+ */
+export const tokenizer = (data) => {
+  const token = jwt.sign(data, process.env.NEXT_PUBLIC_JWT_SECRET, {
+    expiresIn: '7d',
+  });
+  return token;
+};
+
+/**
+ * Decodes a jwt token
+ * @param {String} token - jwt token to be decoded
+ * @returns Decoded jwt data
+ */
+export const tokenDecoder = (token) => {
+  const data = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+  return data;
 };
