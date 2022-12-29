@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { ArrowLongLeftIcon } from '@heroicons/react/24/outline';
 import ProfileLayout from '../../../layouts/ProfileLayout';
 import AssetsListComponent from '../../../components/lib/cards/ProfileAssetList';
+import ProfileAddItem from '../../../components/lib/slideovers/profileAddItem';
 
 const categories = ['Phones', 'Laptops', 'Bikes', 'Cars'];
 
 const Assets = () => {
   const [selected, setSelected] = useState('Phones');
+  const [addItemState, setAddItemState] = useState(false);
 
   return (
     <div className='w-full flex flex-col items-center'>
@@ -36,7 +38,14 @@ const Assets = () => {
             </div>
           ))}
         </div>
-        <AssetsListComponent category={selected} />
+        <AssetsListComponent category={selected} setState={setAddItemState} />
+
+        {/* -- Add item modal */}
+        <ProfileAddItem
+          state={addItemState}
+          setState={setAddItemState}
+          category={selected}
+        />
       </main>
     </div>
   );

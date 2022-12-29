@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { assetsData } from '../../../data/profile.data';
 import { PlusIcon } from '@heroicons/react/24/outline';
 
-const AssetsListComponent = ({ category = '' }) => {
+const AssetsListComponent = ({ category = '', setState }) => {
   return (
     <div className='bg-transparent'>
       <div className='mx-auto max-w-2xl py-5 px-4 sm:py-12 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8'>
@@ -70,19 +70,21 @@ const AssetsListComponent = ({ category = '' }) => {
         <div className='mt-16 mb-20' />
 
         {/* ====== desktop Add button */}
-        <Link href='#' passHref>
-          <a className='col-span-4 self-center relative group bg-green-600 py-3 px-5 top-10 rounded-md text-gray-50 transition-all duration-300 hover:shadow-xl font-medium hidden md:inline-block pointer-events-none md:pointer-events-auto'>
-            Add new {category.slice(0, -1)}
-            <PlusIcon className='inline-block w-5 h-5 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 ml-2' />
-          </a>
-        </Link>
+        <button
+          className='col-span-4 self-center relative group bg-green-600 py-3 px-5 top-10 rounded-md text-gray-50 transition-all duration-300          hover:shadow-xl font-medium hidden md:inline-block pointer-events-none md:pointer-events-auto'
+          onClick={() => setState(true)}
+        >
+          Add new {category.slice(0, -1)}
+          <PlusIcon className='inline-block w-5 h-5 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 ml-2' />
+        </button>
 
         {/* ====== mobile add buttons */}
-        <Link href='#' passHref>
-          <a className='inline-block fixed bg-green-600 text-gray-50 font-medium right-5 rounded-full duration-300 shadow-2xl bottom-5 md:hidden py-4 px-4 z-10 hover:scale-110 md:pointer-events-none'>
-            <PlusIcon className='inline-block w-7 h-7 shadow-2xl' />
-          </a>
-        </Link>
+        <button
+          className='inline-block fixed bg-green-600 text-gray-50 font-medium right-5 rounded-full duration-300 shadow-2xl bottom-5 md:hidden py-4 px-4 z-10 hover:scale-110 md:pointer-events-none'
+          onClick={() => setState(true)}
+        >
+          <PlusIcon className='inline-block w-7 h-7 shadow-2xl' />
+        </button>
       </div>
     </div>
   );

@@ -12,8 +12,12 @@ export default async (req, res) => {
   );
   const hash = bcrypt.hashSync(userData.password, salt);
 
-  userData = { ...userData, password: hash };
-  const newUser = await xata.db.Users.create(userData);
-  console.log(newUser);
-  responder(res, 200, 'ok', 'New user created', newUser);
+  userData = { ...userData, password: hash, phone: Number(userData.phone) };
+
+  try {
+    const newUser = await xata.db.Users.create(userData);
+    responder(res, 200, 'ok', 'New user created', newUser);
+  } catch (error) {
+    responder(res, 400, 'error', error.message, error);
+  }
 };
