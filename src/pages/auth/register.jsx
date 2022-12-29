@@ -2,8 +2,10 @@ import axios from 'axios';
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import { userStore } from '../../global/userStore';
+import React, { useState, useEffect } from 'react';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
 import { EyeSlashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
@@ -11,7 +13,18 @@ import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 const Register = () => {
   const router = useRouter();
   const [eye, setEye] = useState(false);
-  const [userDetails, setUserDetails] = useState({ found: 0 });
+  const { setUser } = userStore();
+  const [userDetails, setUserDetails] = useState({});
+  const { data, error, isLoading, isSuccess, refetch, status } = useQuery(
+    'user-sign-up',
+    async () => axios.post('/api/v1/auth/signup', userDetails),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    }
+  );
 
   // -- handle form on change -->
   const handleForm = (target) => (e) => {
@@ -28,17 +41,25 @@ const Register = () => {
   // -- handle create user -->
   const handleSignup = async (e) => {
     e.preventDefault();
-    try {
-      const newUser = await axios.post('/api/v1/auth/signup', userDetails);
-      if (newUser) {
-        router.replace('/auth/login');
-        alert('✅ User created successfully');
-      }
-      if (!user) alert('failed to create user!');
-    } catch (error) {
-      console.log(error);
+    if (
+      userDetails.password === userDetails.re_password &&
+      userDetails.password.length > 5
+    ) {
+      refetch();
+    } else {
+      alert("Passwords don't match");
     }
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.replace('/profile');
+      setUser({ isLoggedIn: true, token: data.data.data });
+      alert('✅ User created successfully');
+    }
+
+    if (error) console.error(error);
+  }, [status, isLoading]);
 
   return (
     <div
@@ -142,6 +163,7 @@ const Register = () => {
             placeholder='Confirm Password'
             required
             type={eye ? 'text' : 'password'}
+            onChange={(e) => handleForm('re_password')(e)}
           />
           {eye ? (
             <EyeIcon
@@ -158,7 +180,7 @@ const Register = () => {
         {/* Login button */}
         <button type='submit' className='w-full' onClick={handleSignup}>
           <p className='w-full text-center bg-green-500 py-2 rounded-lg shadow-lg text-gray-50 hover:bg-green-600 font-medium transition-all duration-300'>
-            Sign up
+            {isLoading ? 'loading...' : 'Sign up'}
           </p>
         </button>
         {/* Terms and Condition */}

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { userStore, userLocalStore } from '../global/userStore';
+import { userStore } from '../../global/userStore';
 
 const useUser = () => {
   /* 
@@ -12,9 +13,18 @@ const useUser = () => {
   */
 
   const router = useRouter();
-  const { setUser, user: localUser } = userStore();
-  const { user } = userLocalStore();
+  const { user } = userStore();
+  const [response, setResponse] = useState({});
   const [userFound, setUserFound] = useState(false);
+
+  // -- use react query -->
+  const { data, isLoading, error, isSuccess } = useQuery(
+    'auto-get-user',
+    async () =>
+      await axios.post('/api/v1/decode', {
+        token: user.token,
+      })
+  );
 
   // -- check if user is loggedIn -->
   useEffect(() => {
@@ -22,21 +32,18 @@ const useUser = () => {
     if (!user.isLoggedIn) router.replace('/auth/login');
 
     // -- if user then get user -->
-    if (user.isLoggedIn === true) {
-      (async () => {
-        try {
-          const data = await axios.post('/api/v1/decode', {
-            token: user.token,
-          });
-          setUser(data.data.data);
-          setUserFound(true);
-        } catch (error) {
-          console.log(error);
-        }
-      })();
+    if (data && user.isLoggedIn === true) {
+      setResponse(data.data.data);
+      setUserFound(true);
     }
-  }, [localUser.token]);
-  return userFound;
+  });
+
+  return {
+    found: userFound,
+    user: response,
+    isLoading,
+    error,
+  };
 };
 
 export default useUser;

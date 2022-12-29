@@ -17,7 +17,14 @@ export default async (req, res) => {
 
   // -- check password -->
   const result = bcrypt.compareSync(userDetails.password, user.password);
+
   result
-    ? responder(res, 200, 'ok', 'user found', tokenizer(user))
+    ? responder(
+        res,
+        200,
+        'ok',
+        'user found',
+        tokenizer({ id: user.id }) // id;password
+      )
     : responder(res, 403, 'error', 'password mis-match', null);
 };

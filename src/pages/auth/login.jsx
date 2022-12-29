@@ -2,22 +2,32 @@ import axios from 'axios';
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useQuery } from 'react-query';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
-import { userLocalStore } from '../../global/userStore';
+import React, { useState, useEffect } from 'react';
+import { userStore } from '../../global/userStore';
 import LogoImg from '../../assets/logo/retrac-logo-2.png';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import AuthFooterComponent from '../../components/lib/footer/AuthFooter';
 
 const Login = () => {
   const router = useRouter();
-  const { setUser } = userLocalStore();
+  const { setUser } = userStore();
   const [isError, setisError] = useState(false);
+  const [eye, setEye] = useState(false); // input visibility state
 
-  // -- input visibility state -->
-  const [eye, setEye] = useState(false);
+  const { data, isLoading, isSuccess, error, refetch, status } = useQuery(
+    'user-login',
+    async () => await axios.post('/api/v1/auth/login', userDetails),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    }
+  );
 
-  // -- set auth form state -->
+  // -- handle form input change -->
   const [userDetails, setUserDetails] = useState({ email: '', password: '' });
   const handleForm = (target) => (e) => {
     setisError(false);
@@ -30,26 +40,25 @@ const Login = () => {
   // -- auth handler -->
   const handleUserAuth = async (e) => {
     e.preventDefault();
-    try {
-      const user = await axios.post('/api/v1/auth/login', userDetails);
-      // console.log(user.data.data);
-
-      if (user.data) {
-        setUser({ isLoggedIn: true, token: user.data.data });
-        alert('✅ Login successful');
-        router.replace('/profile');
-      }
-    } catch (err) {
-      setisError(true);
-    }
+    refetch();
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setUser({ isLoggedIn: true, token: data.data.data });
+      alert('✅ Login successful');
+      router.replace('/profile');
+    }
+
+    if (error) console.error(error);
+  }, [status]);
 
   return (
     <div
       className='w-full h-screen flex items-center justify-center relative px-10'
       style={{
         background:
-          "linear-gradient(to top, rgba(10,40,60,0.4), rgba(10,40,60,0.4)), url('https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGxhbmRzY2FwZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60    ')",
+          "linear-gradient(to top, rgba(10,40,60,0.4), rgba(10,40,60,0.4)), url('https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGxhbmRzY2FwZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')",
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -64,7 +73,7 @@ const Login = () => {
       {/* ====== Login form */}
       <form className='w-full max-w-md h-auto bg-white rounded-xl shadow-2xl flex flex-col items-center py-20 px-6 gap-6 relative'>
         {/* -- error message */}
-        {isError && (
+        {error && (
           <p className='absolute top-5 text-red-500 font-medium'>
             Email or password incorrect
           </p>
@@ -124,7 +133,7 @@ const Login = () => {
         {/* ====== login btn */}
         <div onClick={handleUserAuth} className='w-full'>
           <p className='w-full text-center bg-green-500 py-2 rounded-lg shadow-lg text-gray-50 hover:bg-green-600 font-medium transition-all duration-300'>
-            Login
+            {isLoading ? 'loading...' : 'Login'}
           </p>
         </div>
 

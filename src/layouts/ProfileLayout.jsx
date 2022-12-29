@@ -1,12 +1,13 @@
 import React from 'react';
-import useUser from '../hooks/useUser';
-import { userLocalStore } from '../global/userStore';
+import useUser from '../hooks/user/useUser';
+import { userStore } from '../global/userStore';
 import FooterComponent from '../components/lib/footer/footer';
 import ProfileHeroComponent from '../components/lib/hero/ProfileHero';
+import { useEffect } from 'react';
 
 const ProfileLayout = ({ children }) => {
   const userFound = useUser();
-  const { user } = userLocalStore();
+  const { user } = userStore();
 
   // -- user not logged in and not found -->
   if (!user.isLoggedIn || !userFound)

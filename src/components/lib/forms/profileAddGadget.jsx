@@ -59,8 +59,8 @@ const ProfileAddGadgetForm = () => {
           className='hidden'
           ref={fileInputRef}
           type='file'
-          multiple
           accept='image/*'
+          // this code avoids selecting the same file twice
           onChange={(e) => {
             e.target.files[0] &&
               setImages((images) => [
