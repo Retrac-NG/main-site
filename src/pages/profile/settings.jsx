@@ -1,35 +1,42 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import { userStore } from '../../global/userStore';
+import useUser from '../../hooks/user/useUser';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
 import ProfileLayout from '../../layouts/ProfileLayout';
 
 const ProfileSettings = () => {
-  const { user, updateUser } = userStore();
+  const { user } = useUser();
+
   const [updateData, setUpdateData] = useState(user);
+
+  const { data, isLoading, error, isSuccess, refetch } = useQuery(
+    'update-user-data',
+    async () =>
+      await axios.post('/api/v1/users/updateUser', {
+        id: user.id,
+        data: updateData,
+      }),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    }
+  );
+
+  // -- set fileds o the new data from server -->
+  useEffect(() => {
+    setUpdateData(user);
+  }, [user]);
+
+  useEffect(() => {
+    if (isSuccess) alert('✅ Update successful');
+    if (error) alert(' ❌Error performing update');
+  }, [data]);
 
   // -- hndle form change -->
   const handleFormChange = (target) => (e) => {
     setUpdateData({ ...updateData, [target]: e.target.value });
-  };
-
-  // -- save update -->
-  const saveUpdate = async () => {
-    /* 
-    save to storage
-    update the database
-    TODO: tokenize new data
-  */
-    try {
-      const data = await axios.post('/api/v1/users/updateUser', {
-        id: user.id,
-        data: updateData,
-      });
-      updateUser(updateData);
-      alert('✅ User Updated');
-      console.log(data.data);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -156,9 +163,9 @@ const ProfileSettings = () => {
           <button
             type='button'
             className='col-span-6 py-3 mt-6 border border-gray-300 rounded-lg shadow-md bg-indigo-600 text-gray-100 font-medium'
-            onClick={saveUpdate}
+            onClick={refetch}
           >
-            Update profile
+            {isLoading ? 'loading' : 'Update profile'}
           </button>
         </form>
       </main>
