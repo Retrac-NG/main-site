@@ -18,6 +18,7 @@ const Register = () => {
     e.preventDefault();
     e.target.checkValidity();
     e.target.reportValidity();
+
     setUserDetails({
       ...userDetails,
       [target]: e.target.value,

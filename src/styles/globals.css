@@ -78,6 +78,17 @@
     @apply text-xs text-center font-light font-secondary  text-gray-300;
   }
 
+  .asset__edit-form {
+    @apply w-full grid grid-cols-2 gap-4;
+  }
+
+  .asset__edit-listbox-btn {
+    @apply relative w-full rounded-lg bg-white py-2 pl-3 pr-10 text-left  shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 h-full border border-indigo-300 cursor-pointer focus-visible:ring-offset-indigo-300 sm:text-sm;
+  }
+  .asset__edit-listbox-options {
+    @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+  }
+
   .asset__edit-container {
     @apply flex flex-col col-span-2 md:col-span-1 gap-1 text-sm;
   }

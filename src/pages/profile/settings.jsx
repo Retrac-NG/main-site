@@ -146,7 +146,7 @@ const ProfileSettings = () => {
               type='tel'
               className='profile__settings-textarea'
               name='address'
-              value={user.address}
+              value={updateData.address}
               placeholder='Full address here...'
               onChange={(e) => handleFormChange('address')(e)}
             />
