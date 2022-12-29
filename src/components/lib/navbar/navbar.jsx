@@ -123,7 +123,7 @@ const NavBarComponent = () => {
               </a>
             </Link>
 
-            <Link href='auth/signup' passHref>
+            <Link href='auth/register' passHref>
               <a className='w-full bg-gradient-to-b from-green-500 to-green-600 rounded-lg py-3 text-gray-100 text-center shadow-lg'>
                 Register
               </a>

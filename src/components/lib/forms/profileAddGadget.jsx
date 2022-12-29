@@ -1,8 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import YearSelector from '../misc/yearSelector';
 
 const ProfileAddGadgetForm = () => {
   const fileInputRef = useRef();
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    images.length >= 5
+      ? (fileInputRef.current.disabled = true)
+      : (fileInputRef.current.disabled = false);
+  }, [images]);
+
   return (
     <form className='asset__edit-form'>
       {/* -- Brand */}
@@ -51,20 +59,47 @@ const ProfileAddGadgetForm = () => {
           className='hidden'
           ref={fileInputRef}
           type='file'
-          required
+          multiple
           accept='image/*'
+          onChange={(e) => {
+            e.target.files[0] &&
+              setImages((images) => [
+                ...images.filter(
+                  (image) => image.name !== e.target.files[0].name
+                ),
+                e.target.files[0],
+              ]);
+          }}
         />
         <div
-          className='py-2 w-32 flex items-center justify-center border rounded-lg cursor-pointer shadow-md transition-all duration-300 border-indigo-300 hover:border-teal-500 mt-2'
+          className='py-2 w-40 flex items-center justify-center border rounded-lg cursor-pointer shadow-md transition-all duration-300 border-indigo-300 hover:border-teal-500 mt-2'
           onClick={() => fileInputRef.current.click()}
         >
-          <p className='text-sm font-secondary'>Upload image</p>
+          <p className='text-sm font-secondary'>
+            {images.length >= 5 ? 'Max files selected' : 'Upload image'}
+          </p>
         </div>
-        {/* -- list the images  */}
+
+        {/* -- list the images - Has list item with delete functionalities*/}
         <ul className='list-disc mt-2 mx-10' role='listbox'>
-          <li>Image 1</li>
-          <li>Image 2</li>
-          <li>Image 3</li>
+          {images &&
+            images.map((img, idx) => (
+              <li key={idx}>
+                <div className='flex items-center justify-between text-xs'>
+                  {img.name}
+                  <span
+                    className='text-rose-500 cursor-pointer px-2'
+                    onClick={() => {
+                      setImages((images) =>
+                        images.filter((image) => image.name !== img.name)
+                      );
+                    }}
+                  >
+                    delete
+                  </span>
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
 
