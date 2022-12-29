@@ -192,13 +192,10 @@ const ProfileAssetManageItem = () => {
         {/* ====== Edit button */}
         <button
           className='flex items-center border-2 py-2 w-max px-12 rounded-md shadow-sm transition-all duration-300 relative hover:shadow-lg border-gray-400  text-gray-400 hover:border-indigo-500  hover:text-indigo-500  font-medium after:w-full after:h-0 after:absolute after:bottom-0 after:left-0 hover:after:h-full after:bg-indigo-500/20 after:transition-all after:duration-300 group after:-z-10'
-          onClick={() => setShowEdit((state) => !state)}
+          onClick={() => setShowEdit(true)}
         >
           Edit asset
-          <PencilSquareIcon
-            className='inline-block w-5 h-5 ml-2 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0'
-            onClick={() => setShowEdit((state) => !state)}
-          />
+          <PencilSquareIcon className='inline-block w-5 h-5 ml-2 opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0' />
         </button>
       </section>
 
