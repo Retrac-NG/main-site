@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
+// -- create schema -->
 const gadgetSchema = new Schema(
   {
     brnad: String,
@@ -37,6 +38,6 @@ const gadgetSchema = new Schema(
   { timestamps: true, collection: 'gadgets' }
 );
 
-const GadgetModel = mongoose.model('gadgets', gadgetSchema);
-
-export default GadgetModel;
+// -- export new model if it doesn't already exist -->
+export default mongoose.models.gadgets ||
+  mongoose.model('gadgets', gadgetSchema);
