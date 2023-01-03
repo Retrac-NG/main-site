@@ -1,12 +1,14 @@
 import bcrypt from 'bcrypt';
-import { responder } from '../../../../utils/responder';
-import { getXataClient } from '../../../../utils/xata';
-import { tokenizer } from '../../../../utils/validator';
+import UserModel from 'models/userModel';
+import { tokenizer } from 'utils/validator';
+import { responder } from 'utils/responder';
+import { mongoConnect } from 'utils/mongo';
 
 export default async (req, res) => {
-  const xata = getXataClient();
   let userData = req.body;
   delete userData.re_password;
+
+  await mongoConnect();
 
   // -- hash the user password -->
   const salt = bcrypt.genSaltSync(
@@ -17,8 +19,9 @@ export default async (req, res) => {
   userData = { ...userData, password: hash, phone: Number(userData.phone) };
 
   try {
-    const newUser = await xata.db.Users.create(userData);
-    const token = tokenizer({ id: newUser.id });
+    const newUser = await UserModel.create(userData);
+    console.log(newUser);
+    const token = tokenizer({ id: newUser._id });
     responder(res, 200, 'ok', 'New user created', token);
   } catch (error) {
     responder(res, 400, 'error', error.message, error);

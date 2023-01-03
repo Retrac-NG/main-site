@@ -1,21 +1,22 @@
-import { getXataClient } from '../../../../utils/xata';
-import { responder } from '../../../../utils/responder';
+import { responder } from 'utils/responder';
+import userModel from 'models/userModel';
+import { mongoConnect } from 'utils/mongo';
 
 export default async (req, res) => {
-  const xata = getXataClient();
+  await mongoConnect();
   const { id, data } = req.body;
-  let newData;
+
   delete data.id;
+  delete data.iat;
+  delete data.exp;
 
   console.log(id, data);
 
-  // -- remove the items added by jwt and db by default  -->
-  for (const key in data) {
-    if (key !== 'iat' && key !== 'exp' && key !== 'id')
-      newData = { ...newData, [key]: data[key] };
-  }
-
-  const response = xata.db.Users.update(id, { ...data });
+  const response = await userModel.findOneAndUpdate(
+    id,
+    { $set: data },
+    { new: true }
+  );
 
   responder(res, 200, 'ok', 'user updated', response);
 };
