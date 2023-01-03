@@ -19,8 +19,11 @@ const ProfileHeroComponent = () => {
     <div
       className='hero__container h-[45vh] lg:h-[50vh] min-h-[600px] py-14 relative px-10'
       style={
-        user.profile_picture && {
-          background: `linear-gradient(to bottom, rgba(10,40,60,0.85), rgba(10,40,60,0.85)), url('${user.profile_picture}')`,
+        user.profile_img && {
+          background: `linear-gradient(to bottom, rgba(10,40,60,0.85), rgba(10,40,60,0.85)), url('${
+            user.profile_img ||
+            'https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
+          }')`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
@@ -35,15 +38,16 @@ const ProfileHeroComponent = () => {
           router.push('/profile/settings');
         }}
       >
-        {user.profile_picture && (
-          <Image
-            src={user.profile_picture}
-            layout='fill'
-            objectFit='cover'
-            objectPosition='center'
-            alt='profile-image'
-          />
-        )}
+        <Image
+          src={
+            user.profile_img ||
+            'https://images.unsplash.com/photo-1505820013142-f86a3439c5b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80'
+          }
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center'
+          alt='profile-image'
+        />
       </div>
 
       {/* ====== full name */}
@@ -66,12 +70,12 @@ const ProfileHeroComponent = () => {
         </div>
 
         <div className='hero__stats-container'>
-          <p className='hero__stats-value'>{user.gedagets || 0}</p>
+          <p className='hero__stats-value'>{user.gadgets?.length || 0}</p>
           <p className='hero__stats-desc'>Owned Gadgets</p>
         </div>
 
         <div className='hero__stats-container'>
-          <p className='hero__stats-value'>{user.vehicles || 0}</p>
+          <p className='hero__stats-value'>{user.vehicles?.length || 0}</p>
           <p className='hero__stats-desc'>Owned Vehicles</p>
         </div>
       </div>

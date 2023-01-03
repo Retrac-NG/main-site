@@ -19,6 +19,7 @@ const Register = () => {
     'user-sign-up',
     async () => axios.post('/api/v1/auth/signup', userDetails),
     {
+      retyr: false,
       enabled: false,
       refetchOnWindowFocus: false,
       refetchOnMount: false,

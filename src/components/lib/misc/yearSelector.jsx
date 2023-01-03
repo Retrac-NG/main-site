@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { ChevronUpDownIcon, CheckIcon } from '@heroicons/react/24/outline';
 
@@ -13,6 +13,9 @@ const YearSelector = ({ setter }) => {
     years.push(baseYear);
     baseYear++;
   }
+  useEffect(() => {
+    setter(year);
+  }, [year]);
 
   return (
     <div className='asset__edit-container '>

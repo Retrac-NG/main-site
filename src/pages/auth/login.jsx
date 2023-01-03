@@ -20,6 +20,7 @@ const Login = () => {
     'user-login',
     async () => await axios.post('/api/v1/auth/login', userDetails),
     {
+      retry: false,
       enabled: false,
       refetchOnWindowFocus: false,
       refetchOnMount: false,
