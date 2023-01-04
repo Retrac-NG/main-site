@@ -8,10 +8,10 @@ export default async (req, res) => {
   const { assetData, userId } = req.body;
 
   try {
-    console.log(assetData);
+    // console.log(assetData);
 
     // -- add asset -->
-    const newAsset = await GadgetModel.create(assetData);
+    const newAsset = await GadgetModel.create({ ...assetData, owner: userId });
 
     // -- getv current user details -->
     const updatedUser = await userModel.findOneAndUpdate(

@@ -24,7 +24,7 @@ const userSchema = new Schema(
       required: [true, 'Pasord is required'],
     },
 
-    Phone: Number,
+    phone: Number,
     address: String,
 
     vehicles: [
