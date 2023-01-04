@@ -5,6 +5,10 @@ const gadgetSchema = new Schema(
   {
     brnad: String,
     Model: String,
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+    },
 
     status: {
       type: String,

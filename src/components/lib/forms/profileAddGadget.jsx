@@ -10,6 +10,7 @@ const ProfileAddGadgetForm = () => {
   const { user } = useUser();
   const fileInputRef = useRef();
   const [images, setImages] = useState([]);
+  const [imageSave, setImageSave] = useState(false);
   const [assetDetails, setAssetDetails] = useState({ status: 'safe' });
 
   const { data, isLoading, isSuccess, error, refetch } = useQuery(
@@ -31,15 +32,17 @@ const ProfileAddGadgetForm = () => {
 
   // -- upload files -->
   const uploadImages = async () => {
-    const url = `${user.email}/gadgets/${assetDetails.brand}-${assetDetails.model}-${assetDetails.year}`;
+    const url = `userData/${user.email}/gadgets/${assetDetails.brand}-${assetDetails.model}-${assetDetails.year}`;
     const { data: fileData } = await fileUploader(url, images);
     setAssetDetails((state) => ({ ...state, images: fileData }));
     alert('✅ Images saved');
+    setImageSave(true);
   };
 
   // -- handle add asset -->
   const handleAddAsset = async () => {
-    refetch();
+    if (images.length === 0 || imageSave) refetch();
+    else alert('❌ failed to add item, check that the images are saved');
   };
 
   useEffect(() => {
@@ -52,6 +55,11 @@ const ProfileAddGadgetForm = () => {
     images.length >= 5
       ? (fileInputRef.current.disabled = true)
       : (fileInputRef.current.disabled = false);
+  }, [images]);
+
+  // -- monitor image save  -->
+  useEffect(() => {
+    setImageSave(false);
   }, [images]);
 
   // -- handle asset input change -->
@@ -174,12 +182,22 @@ const ProfileAddGadgetForm = () => {
               {images.length >= 5 ? 'Max files selected' : 'Upload image'}
             </p>
           </div>
-          <div
-            className='py-2 w-40 flex items-center justify-center bg-indigo-500 border rounded-lg cursor-pointer shadow-md transition-all duration-300 border-indigo-300 hover:border-teal-500'
+          <span
+            className={`py-2 w-40 flex items-center justify-center border rounded-lg cursor-pointer shadow-md transition-all duration-300 border-indigo-300 hover:border-teal-500 ${
+              imageSave || images.length === 0 ? 'bg-gray-200' : 'bg-indigo-500'
+            }`}
             onClick={uploadImages}
           >
-            <p className='text-sm font-secondary text-gray-50'>Save</p>
-          </div>
+            <p
+              className={`text-sm font-secondary ${
+                imageSave || images.length === 0
+                  ? 'text-gray-700'
+                  : 'text-gray-50'
+              }`}
+            >
+              {images.length > 0 ? 'Save' : 'Nothing to save'}
+            </p>
+          </span>
         </span>
 
         {/* -- list the images - Has list item with delete functionalities*/}
